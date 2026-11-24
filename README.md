@@ -95,3 +95,4 @@ Before publishing to production, configure the verified client details in `src/c
    - `openingHours`: e.g. `"Monday – Saturday: 9:00 AM – 7:30 PM"`.
 8. **Client Vehicle Photography**:
    - Swap demonstration concept imagery with authentic workshop photos as projects are signed off.
+"# car-website-demo" 
