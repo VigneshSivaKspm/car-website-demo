@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg-carbon: #F5F2EB;
+    --bg-graphite: #FFFFFF;
+    --bg-charcoal: #DAD3C4;
+    --gold-champagne: #C9A24A;
+    --gold-highlight: #E2C277;
+    --pearl-white: #1A1D22;
+    --muted-silver: #4B4F57;
+  }
+
+  body {
+    background-color: #F5F2EB;
+    color: #1A1D22;
+    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+}
+
+/* Automotive Custom Utilities */
+.automotive-grid {
+  background-image: 
+    linear-gradient(to right, rgba(138, 106, 34, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(138, 106, 34, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(75, 79, 87, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(75, 79, 87, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.carbon-texture {
+  background: 
+    radial-gradient(rgba(60,50,25,.22) 15%, transparent 16%) 0 0,
+    radial-gradient(rgba(60,50,25,.22) 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.6) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.6) 15%, transparent 20%) 8px 9px;
+  background-color: #E9E4D8;
+  background-size: 16px 16px;
+}
+
+/* Metallic text gradients */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B8923A 0%, #8A6A22 50%, #6F5418 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.silver-text-gradient {
+  background: linear-gradient(135deg, #1A1D22 0%, #3A3E46 50%, #5A5E66 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic Bevel Borders */
+.border-gold-subtle {
+  border: 1px solid rgba(138, 106, 34, 0.3);
+}
+
+.border-metallic {
+  border: 1px solid rgba(60, 50, 25, 0.12);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Glassmorphism restrained for luxury automotive studio look */
+.studio-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(138, 106, 34, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F2EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBC3B0;
+  border-radius: 4px;
+  border: 1px solid rgba(138, 106, 34, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A24A;
+}
+
+/* Hide scrollbar for clean horizontal strips if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Page Transition Choreography (used by PageTransitionManager)
+   Smooth, long-eased motion – overlay fade in/out itself is driven by the
+   Web Animations API in the component; these classes style the content.
+   ========================================================================== */
+@keyframes pt-content-in {
+  from { opacity: 0; transform: scale(0.95) translateY(14px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes pt-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes pt-wheel-spin {
+  from { transform: rotate(-270deg) scale(0.88); opacity: 0; }
+  35%  { opacity: 1; }
+  to   { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes pt-spray {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+@keyframes pt-rise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pt-slide-down {
+  from { opacity: 0; transform: translateY(-28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pt-sheen {
+  from { transform: translateX(-45%) rotate(-45deg); }
+  to   { transform: translateX(45%) rotate(-45deg); }
+}
+
+.pt-content {
+  animation: pt-content-in 900ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
+  will-change: opacity, transform;
+}
+
+.pt-progress {
+  transform-origin: left center;
+  animation: pt-progress 1050ms cubic-bezier(0.3, 0, 0.3, 1) both;
+}
+
+.pt-wheel-spin {
+  animation: pt-wheel-spin 1700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.pt-spray {
+  animation: pt-spray 1600ms cubic-bezier(0.45, 0, 0.25, 1) 200ms both;
+}
+
+.pt-rise {
+  animation: pt-rise 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pt-slide-down {
+  animation: pt-slide-down 800ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
+}
+
+.pt-sheen {
+  animation: pt-sheen 1700ms cubic-bezier(0.45, 0, 0.25, 1) 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pt-content, .pt-progress, .pt-wheel-spin, .pt-spray, .pt-rise, .pt-slide-down, .pt-sheen {
+    animation: none;
+  }
+}
